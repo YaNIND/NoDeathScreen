@@ -19,7 +19,7 @@ if($event->getFinalDamage() >= $player->getHealth()) {
 $event->setCancelled();
 $player->teleport($this->getServer()->getDefaultLevel()->getSafeSpawn());
 $player->setHealth($player->getMaxHealth());
-$player->sendMessage("§cYou were stained!");
+$player->addTitle("§l§cYOU DIED!", "§r§eTeleporting to spawn", 1, 100, 50);
    }
 }
 
