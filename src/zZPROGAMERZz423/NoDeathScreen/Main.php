@@ -21,7 +21,7 @@ class Main extends PluginBase implements Listener{
             $event->cancel();
             $player->teleport($this->getServer()->getDefaultWorld()->getSafeSpawn());
             $player->setHealth($player->getMaxHealth());
-            $player->sendTitle("§l§cYOU DIED!", "§r§eTeleporting to spawn", 1, 100, 50);
+            $player->sendTitle("§l§cYOU DIED!", "§r§eTeleporting to spawn");
             }
     }
 
