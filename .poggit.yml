@@ -2,6 +2,7 @@
 build-by-default: true
 branches:
 - PM4
+- master
 projects:
   NoDeathScreen:
     path: ""
