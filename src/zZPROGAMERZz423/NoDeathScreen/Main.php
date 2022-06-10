@@ -21,8 +21,9 @@ class Main extends PluginBase implements Listener{
             $player->teleport($this->getServer()->getDefaultWorld()->getSafeSpawn());
             $player->setHealth($player->getMaxHealth());
             $player->addTitle("§l§cYOU DIED!", "§r§eTeleporting to spawn", 1, 100, 50);
-   }
-}
+            }
+    }
+
 
     public function onDisable(): void {
     }
