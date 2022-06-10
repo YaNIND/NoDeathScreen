@@ -1,28 +1,29 @@
 <?php
 
 namespace zZPROGAMERZz423\NoDeathScreen;
+
 use pocketmine\Server;
-use pocketmine\Player;
+use pocketmine\player\Player;
 use pocketmine\event\entity\EntityDamageEvent;
 use pocketmine\event\Listener;
 use pocketmine\plugin\PluginBase;
 
 class Main extends PluginBase implements Listener{
     
-    public function onEnable(){
+    public function onEnable(): void {
         $this->getServer()->getPluginManager()->registerEvents($this,$this);
     }
     
-    public function onDamage(EntityDamageEvent $event) {
-$player = $event->getEntity();
-if($event->getFinalDamage() >= $player->getHealth()) {
-$event->setCancelled();
-$player->teleport($this->getServer()->getDefaultLevel()->getSafeSpawn());
-$player->setHealth($player->getMaxHealth());
-$player->addTitle("§l§cYOU DIED!", "§r§eTeleporting to spawn", 1, 100, 50);
+    public function onDamage(EntityDamageEvent $event) : void {
+        $player = $event->getEntity();
+        if($event->getFinalDamage() >= $player->getHealth()) {
+            $event->cancel();
+            $player->teleport($this->getServer()->getDefaultWorld()->getSafeSpawn());
+            $player->setHealth($player->getMaxHealth());
+            $player->addTitle("§l§cYOU DIED!", "§r§eTeleporting to spawn", 1, 100, 50);
    }
 }
 
-    public function onDisable(){
+    public function onDisable(): void {
     }
 }
