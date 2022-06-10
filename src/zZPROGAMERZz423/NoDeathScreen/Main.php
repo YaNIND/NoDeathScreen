@@ -7,6 +7,7 @@ use pocketmine\player\Player;
 use pocketmine\event\entity\EntityDamageEvent;
 use pocketmine\event\Listener;
 use pocketmine\plugin\PluginBase;
+use pocketmine\world\World;
 
 class Main extends PluginBase implements Listener{
     
@@ -20,7 +21,7 @@ class Main extends PluginBase implements Listener{
             $event->cancel();
             $player->teleport($this->getServer()->getDefaultWorld()->getSafeSpawn());
             $player->setHealth($player->getMaxHealth());
-            $player->addTitle("§l§cYOU DIED!", "§r§eTeleporting to spawn", 1, 100, 50);
+            $player->sendTitle("§l§cYOU DIED!", "§r§eTeleporting to spawn", 1, 100, 50);
             }
     }
 
