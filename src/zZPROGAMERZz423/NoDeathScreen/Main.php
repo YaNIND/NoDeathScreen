@@ -17,12 +17,16 @@ class Main extends PluginBase implements Listener{
     
     public function onDamage(EntityDamageEvent $event) : void {
         $player = $event->getEntity();
-        if($event->getFinalDamage() >= $player->getHealth()) {
-            $event->cancel();
-            $player->teleport($this->getServer()->getDefaultWorld()->getSafeSpawn());
-            $player->setHealth($player->getMaxHealth());
-            $player->sendTitle("§l§cYOU DIED!", "§r§eTeleporting to spawn");
-            }
+        if($player instanceof Player) {
+           if($player->getHealth() == 0) {
+               if($event->getFinalDamage() >= $player->getHealth()){
+                  $event->cancel();
+                  $player->teleport($this->getServer()->getDefaultWorld()->getSafeSpawn());
+                  $player->setHealth($player->getMaxHealth());
+                  $player->sendTitle("§l§cYOU DIED!", "§r§eTeleporting to spawn");
+               }
+           }
+        }
     }
 
 
